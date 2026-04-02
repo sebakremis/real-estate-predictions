@@ -52,9 +52,7 @@ Feature Engineering: Creación de métricas de dominio específicas, como AvgRoo
 [ ] Ensamblado de modelos (Stacking) para optimizar el Root Mean Squared Logarithmic Error (RMSLE).
 
 🏆 Resultados
-(A completar: Añade aquí tu métrica de Score final de Kaggle RMSLE y la posición una vez que hagas la sumisión final).
+(A completar).
 
 👨‍💻 Autor
-[Sebastian Kremis] * [LinkedIn](www.linkedin.com/in/sebastian-kremis)
-
-[Kaggle](https://www.kaggle.com/sebastiankremis)
+[Sebastian Kremis] * [LinkedIn](https://www.linkedin.com/in/sebastian-kremis)

@@ -39,3 +39,31 @@ def separar_numericas(df, numericas):
         else:
             simetricas.append(col)
     return simetricas, asimetricas
+
+
+# Función para imputar por grupo
+def imputar_por_grupo(df, col_objetivo, col_agrupadora, metodo='mean'):
+    """
+    Imputa nulos usando una estadística específica (media, mediana o moda)
+    agrupando por una columna. Incluye fallback global.
+    """
+    if metodo == 'mode':
+        # Lógica para la moda (se toma el primer valor en caso de distribución multi-modal)
+        func_imputacion = lambda x: x.mode()[0] if not x.mode().empty else np.nan
+        valor_global = df[col_objetivo].mode()[0]
+    elif metodo == 'median':
+        func_imputacion = lambda x: x.median()
+        valor_global = df[col_objetivo].median()
+    else:
+        func_imputacion = lambda x: x.mean()
+        valor_global = df[col_objetivo].mean()
+
+    # 1. Imputación por grupo
+    df[col_objetivo] = df[col_objetivo].fillna(
+        df.groupby(col_agrupadora)[col_objetivo].transform(func_imputacion)
+    )
+
+    # 2. Fallback global (por si el grupo entero era nulo)
+    df[col_objetivo] = df[col_objetivo].fillna(valor_global)
+
+    return df

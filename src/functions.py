@@ -1,5 +1,5 @@
-# src/depuration.py
-# Contiene funciones para la sección de depuración del notebook 01_Preprocessing.ipynb
+# src/functions.py
+# Contiene funciones para el preprocesamiento y modelado de datos
 import matplotlib.pyplot as plt
 import numpy as np
 

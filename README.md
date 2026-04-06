@@ -6,20 +6,22 @@ El objetivo principal de este proyecto es predecir con precisión el precio de v
 
 ## 🚀 Estructura del Proyecto
 
-* `data/`: Contiene los archivos de datos originales provistos por Kaggle (`train.csv`, `test.csv`, `data_description.txt`).
+* `data/raw`: Contiene los archivos de datos originales provistos por Kaggle (`train.csv`, `test.csv`, `data_description.txt`).
+* `data/submission.csv`: Archivo de salida para subir las predicciones a la plataforma de Kaggle.
 * `src/`: Carpeta con scripts modulares en Python.
-  * `depuration.py`: Funciones customizadas para la visualización y limpieza de la base de datos (e.g. histogramas, boxplots).
+  * `functions.py`: Funciones customizadas para la visualización y limpieza de la base de datos (e.g. histogramas, boxplots).
 * `01_Preprocessing.ipynb`: Jupyter notebook enfocado en la exploración inicial (EDA), limpieza de datos, manejo de valores nulos y creación de nuevas variables (Feature Engineering).
-* `sample_submission.csv`: Archivo de ejemplo para los resultados enviados a la plataforma.
+* `02_Modeling.ipynb`: Jupyter notebook donde se entrenan modelos de ML y se evalúan los resultados.
+
 
 ## 🛠️ Instalación y Requisitos
 
-Para replicar y ejecutar el código de este proyecto de manera local, asegúrate de tener instalado Python 3.8+ y las siguientes librerías:
+Para replicar y ejecutar el código de este proyecto de manera local, primero clona este repositorio y luego instala las dependencias utilizando el archivo `requirements.txt`. Asegúrate de tener instalado Python 3.8+:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
-git clone [https://github.com/TU_USUARIO/real-estate-predictions.git](https://github.com/TU_USUARIO/real-estate-predictions.git)
-
+git clone https://github.com/sebakremis/real-estate-predictions.git
+cd real-estate-predictions
+pip install -r requirements.txt
 ```
 
 Ejecuta el notebook desde Jupyter o un entorno compatible. Ejemplo:
@@ -30,7 +32,7 @@ jupyter notebook 01_Preprocessing.ipynb
 🧠 Metodología
 Análisis Exploratorio de Datos (EDA): Visualización y descubrimiento de la distribución de SalePrice y su relación con variables clave.
 
-Data Cleaning & Preprocessing:
+Data Cleaning & Preprocessing.
 
 Concatenación de datos de entrenamiento y test para un procesamiento uniforme.
 
@@ -38,21 +40,7 @@ Manejo avanzado de valores faltantes (NaNs interpretados según el dominio del p
 
 Conversión inteligente de variables categóricas vs. numéricas.
 
-Feature Engineering: Creación de métricas de dominio específicas, como AvgRoomSize, HasGarage y GarageAge.
-
-📈 Próximos Pasos (To-Do)
-[ ] Transformación Box-Cox / Logarítmica para características sesgadas y target.
-
-[ ] Codificación Ordinal (Ordinal Encoding) para features de calidad de los inmuebles.
-
-[ ] Entrenar y optimizar modelos Baseline (Lasso, Ridge Regression).
-
-[ ] Implementar modelos basados en árboles (XGBoost, LightGBM, CatBoost).
-
-[ ] Ensamblado de modelos (Stacking) para optimizar el Root Mean Squared Logarithmic Error (RMSLE).
-
-🏆 Resultados
-(A completar).
+Feature Engineering: Creación de métricas de dominio específicas, como `AvgRoomSize`, `HasGarage` y `GarageAge`.
 
 👨‍💻 Autor
 [Sebastian Kremis] * [LinkedIn](https://www.linkedin.com/in/sebastian-kremis)

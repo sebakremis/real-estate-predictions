@@ -74,6 +74,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 def obtener_metricas(y_real, y_pred, nombre_modelo):
     mse = mean_squared_error(y_real, y_pred)
+    
+    
     return {
         'Modelo': nombre_modelo,
         'MAE': mean_absolute_error(y_real, y_pred),
